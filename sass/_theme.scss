@@ -1,7 +1,9 @@
-$color-primary: #3a00ff !default;
-$color-primary-alt: #6f6ffd !default;
-$color-secondary: #d42257 !default;
-$color-background: #d2fbf7 !default;
+$color-primary: #fff !default;
+$color-primary-alt: #008512 !default;
+$color-secondary: #da0000 !default;
+$color-background: #141414 !default;
+$color-variant-1: #ff4cd8 !default;
+$color-variant-2: #43e9ff !default;
 
 $brand-colors: (
   primary: $color-primary,
@@ -33,7 +35,7 @@ $colors: map-merge(
   @return "%23" + str-slice("#{color($color)}", 2, -1);
 }
 
-$link-color: color(primary) !default;
+$link-color: color(primary-alt) !default;
 $border-radius: 8px !default;
 
 $font-weight-strong: 500 !default;
@@ -58,7 +60,9 @@ $font-sizes: (
   }
 
   --color-anchor: #{$link-color};
-  --font-family: "Baloo 2", sans-serif;
+  --title-font-family: "Monoton", sans-serif;
+  --body-font-family: "Krona One", sans-serif;
+  --header-font-family: "Ubuntu", sans-serif;
   --font-weight-strong: #{$font-weight-strong};
 
   @each $key, $size in $font-sizes {

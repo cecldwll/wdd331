@@ -9,11 +9,13 @@ h4 {
 
 h1 {
   font-size: var(--font-size-h1);
+  font-family: var(--title-font-family);
   font-size: clamp(2rem, 7vw, var(--font-size-h1));
 }
 
 h2 {
   font-size: var(--font-size-h2);
+  font-family: var(--header-font-family);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
   text-align: center;
 }
@@ -26,15 +28,18 @@ h2 {
 }
 
 h3 {
+  font-family: var(--header-font-family);
   font-size: var(--font-size-h3);
 }
 
 h4 {
+  font-family: var(--header-font-family);
   font-size: var(--font-size-h4);
 }
 
 p,
 li {
+  font-family: var(--body-font-family);
   font-size: var(--font-size-text);
 }
 
