@@ -61,8 +61,8 @@ $font-sizes: (
 
   --color-anchor: #{$link-color};
   --title-font-family: "Monoton", sans-serif;
-  --body-font-family: "Krona One", sans-serif;
-  --header-font-family: "Ubuntu", sans-serif;
+  --body-font-family: "Inconsolata", sans-serif;
+  --header-font-family: "Krona One", sans-serif;
   --font-weight-strong: #{$font-weight-strong};
 
   @each $key, $size in $font-sizes {

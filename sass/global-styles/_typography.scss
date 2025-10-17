@@ -16,7 +16,7 @@ h1 {
 h2 {
   font-size: var(--font-size-h2);
   font-family: var(--header-font-family);
-  font-size: clamp(2rem, 4vw, var(--font-size-h2));
+  font-size: clamp(10px, 12px, var(--font-size-h2));
   text-align: center;
 }
 
