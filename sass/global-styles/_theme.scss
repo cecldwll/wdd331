@@ -1,50 +1,47 @@
-$color-primary: #fff !default;
-$color-primary-alt: #008512 !default;
-$color-secondary: #da0000 !default;
-$color-background: #141414 !default;
-$color-variant-1: #ff4cd8 !default;
+// ======================
+// COLOR VARIABLES
+// ======================
+$color-background: #000 !default; // set default background if not defined
+$color-text: #fff !default;
+
+$color-variant-1: #f9fb00 !default;
 $color-variant-2: #43e9ff !default;
+$color-variant-3: #01ff00 !default;
+$color-variant-4: #fd00fb !default;
+$color-variant-5: #fb0102 !default;
+$color-variant-6: #0301fc !default;
 
-$brand-colors: (
-  primary: $color-primary,
-  primary-alt: $color-primary-alt,
-  secondary: $color-secondary,
-) !default;
+$link-color: $color-variant-2 !default;
 
-$color-body: scale-color(
-  $color-primary,
-  $lightness: -30%,
-  $saturation: -50%
-) !default;
-$color-gray: mix(#767676, $color-body, 70%) !default;
+// ======================
+// TEXT + TYPOGRAPHY
+// ======================
+$font-size-h1: 6rem !default;
+$font-size-h2: 2rem !default;
+$font-size-h3: 1.45rem !default;
+$font-size-h4: 1.15rem !default;
+$font-size-text: 1.05rem !default;
 
-$colors: map-merge(
-  $brand-colors,
-  (
-    background: $color-background,
-    text: $color-body,
-    light: #fff,
-  )
+$border-radius: 5px !default;
+
+// ======================
+// MAPS
+// ======================
+
+// Colors map
+$colors: (
+  background: $color-background,
+  text: $color-text,
+  variant-1: $color-variant-1,
+  variant-2: $color-variant-2,
+  variant-3: $color-variant-3,
+  variant-4: $color-variant-4,
+  variant-5: $color-variant-5,
+  variant-6: $color-variant-6,
+  link: $link-color,
 );
 
-@function color($key) {
-  @return map-get($colors, $key);
-}
-
-@function svgColor($color) {
-  @return "%23" + str-slice("#{color($color)}", 2, -1);
-}
-
-$link-color: color(primary-alt) !default;
-$border-radius: 8px !default;
-
-$font-weight-strong: 500 !default;
-$font-size-h1: 6rem !default;
-$font-size-h2: 3rem !default;
-$font-size-h3: 2rem !default;
-$font-size-h4: 1.35rem !default;
-$font-size-text: 1.15rem !default;
-
+// Font sizes map
 $font-sizes: (
   h1: $font-size-h1,
   h2: $font-size-h2,
@@ -53,21 +50,41 @@ $font-sizes: (
   text: $font-size-text,
 );
 
-// stylelint-disable
+// ======================
+// 🧩 FUNCTIONS
+// ======================
+
+// Generic map getter
+@function token($map, $key) {
+  @return map-get($map, $key);
+}
+
+// Shortcut function to get colors
+@function color($key) {
+  @return token($colors, $key);
+}
+
+// ======================
+// 💾 OUTPUT TO :root
+// ======================
 :root {
-  @each $key, $color in $colors {
-    --color-#{$key}: #{$color};
+  // Colors
+  @each $key, $value in $colors {
+    --color-#{$key}: #{$value};
   }
 
-  --color-anchor: #{$link-color};
-  --title-font-family: "Monoton", sans-serif;
-  --body-font-family: "Krona One", sans-serif;
-  --header-font-family: "Ubuntu", sans-serif;
-  --font-weight-strong: #{$font-weight-strong};
+  // --title-font-family: "Monoton", sans-serif; // alternative title font
+  --title-font-family: "Rubik Glitch", sans-serif;
+  --header-font-family: "Krona One", sans-serif;
+  --body-font-family: "Inconsolata", sans-serif;
 
-  @each $key, $size in $font-sizes {
-    --font-size-#{$key}: #{$size};
+  --font-weight-strong: 900;
+
+  // Font sizes
+  @each $key, $value in $font-sizes {
+    --font-size-#{$key}: #{$value};
   }
 
+  // Border radius
   --border-radius: #{$border-radius};
 }
