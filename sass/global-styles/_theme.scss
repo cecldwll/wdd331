@@ -4,14 +4,14 @@
 $color-background: #000 !default; // set default background if not defined
 $color-text: #fff !default;
 
-$color-variant-1: #f9fb00 !default;
-$color-variant-2: #43e9ff !default;
+$color-variant-1: #43e9ff !default;
+$color-variant-2: #f9fb00 !default;
 $color-variant-3: #01ff00 !default;
 $color-variant-4: #fd00fb !default;
 $color-variant-5: #fb0102 !default;
 $color-variant-6: #0301fc !default;
 
-$link-color: $color-variant-2 !default;
+$link-color: $color-variant-1 !default;
 
 // ======================
 // TEXT + TYPOGRAPHY
@@ -73,8 +73,9 @@ $font-sizes: (
     --color-#{$key}: #{$value};
   }
 
-  // --title-font-family: "Monoton", sans-serif; // alternative title font
-  --title-font-family: "Rubik Glitch", sans-serif;
+  --title-font-family: "Monoton", sans-serif; // alternative title font
+  // --title-font-family: "Koulen", sans-serif;
+  // --title-font-family: "Rubik Glitch", sans-serif;
   --header-font-family: "Krona One", sans-serif;
   --body-font-family: "Inconsolata", sans-serif;
 
