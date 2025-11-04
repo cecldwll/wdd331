@@ -51,7 +51,7 @@ $font-sizes: (
 );
 
 // ======================
-// 🧩 FUNCTIONS
+// FUNCTIONS
 // ======================
 
 // Generic map getter
@@ -65,7 +65,7 @@ $font-sizes: (
 }
 
 // ======================
-// 💾 OUTPUT TO :root
+// OUTPUT TO :root
 // ======================
 :root {
   // Colors
@@ -73,9 +73,7 @@ $font-sizes: (
     --color-#{$key}: #{$value};
   }
 
-  --title-font-family: "Monoton", sans-serif; // alternative title font
-  // --title-font-family: "Koulen", sans-serif;
-  // --title-font-family: "Rubik Glitch", sans-serif;
+  --title-font-family: "Monoton", sans-serif;
   --header-font-family: "Krona One", sans-serif;
   --body-font-family: "Inconsolata", sans-serif;
 
