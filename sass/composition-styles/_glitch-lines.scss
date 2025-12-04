@@ -76,3 +76,96 @@ body::after {
   95%  { transform: translateY(0px); }
   100% { transform: translateY(0px); }
 }
+
+// --------------------------
+// Glitch effect on h2 hover
+// --------------------------
+section h2 {
+  display: inline-block;
+  position: relative;
+
+  // Default styling
+  color: theme.color(text);
+
+  &:hover {
+    text-shadow: 0.025em 0 0 theme.color(variant-4),
+                 -0.025em -0.015em 0 theme.color(variant-1),
+                 -0.015em 0.025em 0 theme.color(variant-4);
+
+    animation: glitchTextColors 850ms linear infinite;
+
+    &::before,
+    &::after {
+      content: attr(data-text); // optional if you have a data-text attribute, else fallback
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    &::before {
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+      transform: translate(-0.05em, -0.025em);
+      animation: brokenTextOne 750ms linear infinite;
+    }
+
+    &::after {
+      clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+      transform: translate(0.05em, 0.025em);
+      animation: brokenTextTwo 1000ms linear infinite;
+    }
+  }
+}
+
+// --------------------------
+// Keyframes (reuse from h1 glitch)
+@keyframes glitchTextColors {
+  0% {
+    text-shadow: 0.05em 0 0 theme.color(variant-4),
+                 -0.05em -0.025em 0 theme.color(variant-1),
+                 -0.025em 0.05em 0 theme.color(variant-4);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 theme.color(variant-4),
+                 -0.05em -0.025em 0 theme.color(variant-1),
+                 -0.025em 0.05em 0 theme.color(variant-4);
+  }
+  15% {
+    text-shadow: -0.05em -0.025 0 theme.color(variant-4),
+                 0.025em 0.025em 0 theme.color(variant-1),
+                 -0.05em -0.05em 0 theme.color(variant-4);
+  }
+  49% {
+    text-shadow: -0.05em -0.025 0 theme.color(variant-4),
+                 0.025em 0.025em 0 theme.color(variant-1),
+                 -0.05em -0.05em 0 theme.color(variant-4);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 theme.color(variant-4),
+                 0.05em 0 0 theme.color(variant-1),
+                 0 -0.05em 0 theme.color(variant-4);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 theme.color(variant-4),
+                 0.05em 0 0 theme.color(variant-1),
+                 0 -0.05em 0 theme.color(variant-4);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 theme.color(variant-4),
+                 -0.025em -0.025em 0 theme.color(variant-1),
+                 -0.025em -0.05em 0 theme.color(variant-4);
+  }
+}
+
+@keyframes brokenTextOne {
+  0%, 65% { transform: translate(0, 0); }
+  70%, 80% { transform: translate(-0.05em, -0.025em); }
+  85%, 100% { transform: translate(0, 0); }
+}
+
+@keyframes brokenTextTwo {
+  0%, 15% { transform: translate(0, 0); }
+  20%, 30% { transform: translate(0.05em, -0.025em); }
+  35%, 100% { transform: translate(0, 0); }
+}
