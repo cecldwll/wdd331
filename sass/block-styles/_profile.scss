@@ -1,78 +1,22 @@
-// .profile {
-//   width: 95vw;
-//   max-width: 80ch;
-//   margin: 1rem auto 10vh;
-//   padding: 1.25rem;
-//   z-index: 1;
+@use "../utility-styles/mixins" as mixins;
+@use "../global-styles/theme" as theme;
 
-//   h4 {
-//     margin: 0;
-//     color: var(--color-secondary);
-//     text-align: center;
-//   }
+.profile {
+  @include mixins.panel-base;
+  text-align: center;
 
-//   .container {
-//     display: grid;
-//     justify-items: center;
-//     grid-gap: 1rem;
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--color-variant-1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem;
+  }
 
-//     > a {
-//       min-height: 2em;
-//       border: 2px solid currentColor;
-//       color: var(--color-secondary);
-//     }
-//   }
-
-//   ul {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     margin: 0;
-//     padding: 0;
-//     list-style: none;
-
-//     li {
-//       display: flex;
-//       padding: 0.45em;
-
-//       span:nth-child(1) {
-//         width: auto;
-//         margin-right: 0.25em;
-//         font-weight: var(--font-weight-strong);
-//       }
-
-//       span:nth-child(2) {
-//         flex-grow: 1;
-//         word-break: break-word;
-
-//         a {
-//           color: inherit;
-//         }
-//       }
-//     }
-//   }
-
-//   @media (min-width: 180ch) {
-//     position: fixed;
-//     right: 2vmin;
-//     bottom: 2vmin;
-//     max-width: 30ch;
-//     margin-bottom: 0;
-//     border-radius: var(--border-radius);
-//     background-color: var(--color-light);
-//     box-shadow: 0 2px 5px rgba(color(primary), 0.15);
-
-//     ul {
-//       justify-content: unset;
-
-//       li {
-//         padding: 0;
-
-//         span:nth-child(1) {
-//           width: 8ch;
-//           margin-right: 0;
-//         }
-//       }
-//     }
-//   }
-// }
+  h3 {
+    font-family: var(--header-font-family);
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+}

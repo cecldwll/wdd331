@@ -1,21 +1,22 @@
-@import "global-styles/fonts";
+@use "global-styles/fonts";
 
 // You can modify the theme directly, or override some of the variables
-// Overrides just need placed prior to the theme import
+// Overrides just need placed prior to the theme use
 // For example:
 // $color-primary: #3a0;
-@import "global-styles/theme";
-@import "global-styles/reset";
-@import "utility-styles/logomark";
-@import "global-styles/typography";
-@import "composition-styles/layout";
-@import "block-styles/header";
-@import "block-styles/nav";
-@import "block-styles/about";
-@import "block-styles/guidelines";
-@import "block-styles/contribute";
-@import "block-styles/files";
-@import "block-styles/styles";
-@import "block-styles/profile";
-@import "block-styles/footer";
-@import "utility-styles/links";
+@use "global-styles/theme" as theme;
+@use "global-styles/reset";
+@use "utility-styles/logomark";
+@use "global-styles/typography";
+@use "utility-styles/mixins" as mixins;
+@use "composition-styles/layout";
+@use "block-styles/header";
+@use "block-styles/nav";
+@use "block-styles/about";
+@use "block-styles/guidelines";
+@use "block-styles/contribute";
+@use "block-styles/files";
+@use "block-styles/styles";
+@use "block-styles/profile";
+@use "block-styles/footer";
+@use "utility-styles/links";

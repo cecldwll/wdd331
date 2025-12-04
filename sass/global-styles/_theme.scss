@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // ======================
 // COLOR VARIABLES
 // ======================
@@ -54,14 +56,9 @@ $font-sizes: (
 // FUNCTIONS
 // ======================
 
-// Generic map getter
-@function token($map, $key) {
-  @return map-get($map, $key);
-}
-
-// Shortcut function to get colors
+// Function to get colors
 @function color($key) {
-  @return token($colors, $key);
+  @return map.get($colors, $key);
 }
 
 // ======================
