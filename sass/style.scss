@@ -10,6 +10,7 @@
 @use "global-styles/typography";
 @use "utility-styles/mixins" as mixins;
 @use "composition-styles/layout";
+@use "composition-styles/glitch-lines";
 @use "block-styles/header";
 @use "block-styles/nav";
 @use "block-styles/about";
@@ -19,5 +20,4 @@
 @use "block-styles/styles";
 @use "block-styles/profile";
 @use "block-styles/footer";
-@use "block-styles/hover-effects";
 @use "utility-styles/links";

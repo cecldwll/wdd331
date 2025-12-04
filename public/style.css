@@ -334,6 +334,101 @@ section a:hover {
   text-shadow: 0 0 6px #fd00fb;
 }
 
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+
+body::before {
+  background: repeating-linear-gradient(to bottom, transparent 0px, transparent 3px, #43e9ff 3px, #43e9ff 4px, transparent 4px);
+  opacity: 0.06;
+  animation: glitchLines 6s infinite steps(2, end);
+}
+
+body::after {
+  background: repeating-linear-gradient(to bottom, transparent 0px, transparent 2px, #fd00fb 2px, #fd00fb 3px, transparent 3px);
+  opacity: 0.06;
+  animation: glitchLinesAlt 7s infinite steps(3, end);
+}
+
+@keyframes glitchLines {
+  0% {
+    transform: translateY(0px);
+  }
+  10% {
+    transform: translateY(-2px);
+  }
+  20% {
+    transform: translateY(1px);
+  }
+  30% {
+    transform: translateY(-3px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+  60% {
+    transform: translateY(-1px);
+  }
+  70% {
+    transform: translateY(0px);
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+  90% {
+    transform: translateY(1px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes glitchLinesAlt {
+  0% {
+    transform: translateY(0px);
+  }
+  15% {
+    transform: translateY(1px);
+  }
+  25% {
+    transform: translateY(-2px);
+  }
+  35% {
+    transform: translateY(2px);
+  }
+  45% {
+    transform: translateY(-1px);
+  }
+  55% {
+    transform: translateY(0px);
+  }
+  65% {
+    transform: translateY(3px);
+  }
+  75% {
+    transform: translateY(-2px);
+  }
+  85% {
+    transform: translateY(1px);
+  }
+  95% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 .skip-link {
   position: relative;
   z-index: 1;
@@ -709,26 +804,6 @@ footer a {
 }
 footer a:hover {
   text-shadow: 0 0 10px var(--color-variant-1);
-}
-
-section h2, section h3 {
-  position: relative;
-  display: inline-block;
-}
-section h2::after, section h3::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -0.25rem;
-  height: 3px;
-  width: 100%;
-  background: linear-gradient(90deg, #43e9ff, #fd00fb);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
-section h2:hover::after, section h3:hover::after {
-  transform: scaleX(1);
 }
 
 .link-github svg {
