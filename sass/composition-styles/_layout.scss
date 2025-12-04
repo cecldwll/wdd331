@@ -1,13 +1,114 @@
-.main-layout {
-  width: 100%;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
+@use "../utility-styles/mixins" as mixins;
+@use "../global-styles/theme" as theme;
 
-  @media (min-width: 800px) {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 3rem;
+body {
+  background-color: theme.color(background);
+  color: theme.color(text);
+  font-family: var(--body-font-family);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+// subtle glitch “noise” overlay on the page
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.02) 0px,
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px,
+      transparent 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.02) 0px,
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  pointer-events: none;
+  z-index: 0;
+  animation: glitchNoise 0.5s infinite linear;
+}
+
+@keyframes glitchNoise {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(1px, -1px); }
+  100% { transform: translate(0,0); }
+}
+
+// Section styles
+section {
+  background-color: theme.color(background); // solid black
+  @include mixins.panel-base(theme.color(background), theme.color(background)); // same color so panel gradient doesn’t show
+  margin: 2rem auto;
+  padding: 2.5rem 2rem;
+  max-width: 85%;
+  border-radius: 1rem;
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.6), 0 0 5px rgba(255,0,255,0.05), 0 0 5px rgba(0,255,255,0.05);
+  position: relative;
+  overflow: hidden;
+
+  // subtle animated glitch flicker
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255,0,255,0.05) 0%,
+      rgba(0,255,255,0.05) 50%,
+      rgba(255,255,0,0.05) 100%
+    );
+    mix-blend-mode: screen;
+    animation: glitchOverlay 2s infinite linear;
+    pointer-events: none;
   }
+
+  h2 {
+    @include mixins.glitch-text(theme.color(variant-1), theme.color(variant-4));
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  p, ol, ul {
+    margin-bottom: 1.5rem;
+  }
+
+  ol, ul {
+    padding-left: 2rem;
+
+    li {
+      margin-bottom: 1rem;
+
+      a {
+        color: theme.color(variant-2);
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s, text-shadow 0.3s;
+
+        &:hover {
+          color: theme.color(variant-5);
+          text-shadow: 0 0 5px theme.color(variant-1),
+                       0 0 10px theme.color(variant-4);
+        }
+      }
+    }
+  }
+}
+
+// Animated gradient flicker overlay
+@keyframes glitchOverlay {
+  0% { transform: translate(0,0); opacity: 0.05; }
+  25% { transform: translate(-2px,1px); opacity: 0.08; }
+  50% { transform: translate(1px,-1px); opacity: 0.04; }
+  75% { transform: translate(-1px,2px); opacity: 0.06; }
+  100% { transform: translate(0,0); opacity: 0.05; }
 }

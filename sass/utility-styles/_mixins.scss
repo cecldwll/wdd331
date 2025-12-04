@@ -2,16 +2,12 @@
 @use "../global-styles/theme" as theme;
 
 // PANEL BASE 
-@mixin panel-base {
-  background: linear-gradient(
-    135deg,
-    theme.color(variant-4),
-    theme.color(variant-1)
-  );
-  padding: 1.5rem;
-  border-radius: 14px;
-  border: 3px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+@mixin panel-base($grad-start: theme.color(variant-6), $grad-end: theme.color(variant-3)) {
+  background: linear-gradient(120deg, $grad-start, $grad-end);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   position: relative;
 }
@@ -48,7 +44,7 @@
   0%   { clip-path: inset(10% 0 85% 0); }
   25%  { clip-path: inset(60% 0 20% 0); }
   50%  { clip-path: inset(30% 0 50% 0); }
-  75%  { clip-path: inset(80% 0 5% 0);  }
+  75%  { clip-path: inset(80% 0 5% 0); }
   100% { clip-path: inset(10% 0 85% 0); }
 }
 
