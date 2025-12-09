@@ -136,21 +136,15 @@ a:hover {
   text-transform: uppercase;
 }
 
-article .container > ul:not(.features) > li + li,
-article .container > ol > li + li {
-  margin-top: 1rem;
-}
-article .container * + h2 {
-  margin-top: 4rem;
-}
-article .container * + h3 {
-  margin-top: 2rem;
-}
-
 #guidelines p:nth-of-type(1),
 #contribute p:nth-of-type(1) {
   font-size: var(--font-size-h4);
   font-weight: var(--font-weight-strong);
+}
+
+.profile li,
+footer li {
+  list-style-type: none;
 }
 
 @keyframes glitch-frag-1 {
@@ -295,12 +289,21 @@ section h2::after {
 }
 section h2 {
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: var(--color-variant-2);
+  margin-bottom: 1.5rem;
 }
 
 section p,
 section li {
   margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+aside li {
   line-height: 1.6;
 }
 
@@ -484,7 +487,6 @@ section h2:hover::after {
 }
 .skip-link {
   position: relative;
-  z-index: 1;
   top: 0.5em;
   left: 1em;
 }

@@ -131,7 +131,15 @@ section {
 section h2 {
   @include mixins.glitch-text(theme.color(variant-1), theme.color(variant-4));
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+// --------------------------
+// Headings (h3), {TL;DR, Steps to Contribute, Source Files}
+// --------------------------
+h3 {
+  color: var(--color-variant-2);
+  margin-bottom: 1.5rem;
 }
 
 // --------------------------
@@ -140,6 +148,10 @@ section h2 {
 section p,
 section li {
   margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+aside li {
   line-height: 1.6;
 }
 
