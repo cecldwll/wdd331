@@ -136,6 +136,14 @@ a:hover {
   text-transform: uppercase;
 }
 
+blockquote {
+  border: 2px solid var(--color-variant-6);
+  padding: 1rem 2rem;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+
 #guidelines p:nth-of-type(1),
 #contribute p:nth-of-type(1) {
   font-size: var(--font-size-h4);
@@ -317,6 +325,55 @@ section a:hover {
   text-shadow: 0 0 6px #fd00fb;
 }
 
+blockquote::after {
+  content: "";
+  position: absolute;
+  top: -100;
+  left: 0;
+  width: 500px;
+  height: 5px; /* Set the thickness of your border */
+  background-color: var(--color-variant-5); /* Set the color of your border */
+  clip-path: polygon(15% 75%, 15% 15%, 15% 0%, 75% 0%, 75% 15%, 100% 15%, 100% 75%, 75% 75%, 75% 100%, 15% 100%, 0 100%, 0% 75%);
+  animation: glitchStripe 1000ms linear infinite;
+}
+
+@keyframes glitchStripe {
+  0% {
+    transform: translate(0, 0);
+    background-color: var(--color-variant-5);
+  }
+  10% {
+    background-color: var(--color-variant-5);
+    opacity: 50%;
+  }
+  15% {
+    transform: translate(0, 0);
+    background-color: var(--color-variant-1);
+    opacity: 100%;
+  }
+  20% {
+    transform: translate(-0.05em, -0.025em);
+    background-color: var(--color-variant-5);
+    opacity: 50%;
+  }
+  70% {
+    transform: translate(-0.05em, -0.025em);
+    background-color: var(--color-variant-5);
+  }
+  85% {
+    background-color: var(--color-variant-6);
+  }
+  90% {
+    transform: translate(0, 0);
+    background-color: var(--color-variant-5);
+    opacity: 50%;
+  }
+  100% {
+    transform: translate(0, 0);
+    background-color: var(--color-variant-5);
+    opacity: 50%;
+  }
+}
 body::before,
 body::after {
   content: "";

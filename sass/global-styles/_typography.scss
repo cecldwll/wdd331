@@ -61,14 +61,14 @@ a:hover {
 }
 
 // 'How it Works' blockquote
-// blockquote {
-//   border: 2px solid var(--color-variant-6);
-//   padding: 1rem 2rem;
+blockquote {
+  border: 2px solid var(--color-variant-6);
+  padding: 1rem 2rem;
 
-//   p {
-//     margin-bottom: 0;
-//   }
-// }
+  p {
+    margin-bottom: 0;
+  }
+}
 
 // creating a fake subtitle for the Guidelines and Contribute sections
 #guidelines,
