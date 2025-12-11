@@ -2,21 +2,113 @@
 @use "../global-styles/theme" as theme;
 
 .profile {
+  /* Base styling */
   @include mixins.panel-base;
+
+  /* Remove gradient + shadows */
+  background: var(--color-bg) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border-color: var(--color-variant-1);
+  margin-left: 20%;
+  margin-right: 20%;
   text-align: center;
 
-  img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid var(--color-variant-1);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    margin-bottom: 1rem;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  h3 {
+  h4 {
     font-family: var(--header-font-family);
     color: var(--color-text);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+  }
+
+  /* currently staged style list */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+
+    gap: 0.35rem;
+
+    /* Dash-style bullets */
+    li {
+      display: flex;
+      align-items: flex-start;
+      text-align: left; 
+
+      &::before {
+        content: "-";
+        margin-right: 0.5rem;
+        color: var(--color-variant-1);
+      }
+
+      span:first-child {
+        font-weight: bold;
+        margin-right: 0.25rem;
+      }
+    }
+  }
+
+  a {
+    color: var(--color-variant-1);
+    text-decoration: underline;
   }
 }
+
+/* featured styles */
+#styles {
+  > .container {
+    padding-block: 2rem;
+    background: none !important;
+  }
+
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 1rem auto 0;
+    width: min(560px, 92%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+  }
+
+  .features li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .features li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--color-variant-1);
+    font-weight: 700;
+  }
+
+  .features li span + span {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--color-text);
+    opacity: 0.85;
+    font-size: 0.95rem;
+  }
+
+  .link-allstyles {
+    display: block;
+    margin-top: 1.5rem;
+    padding-top: 0.5rem;
+    text-align: center;
+  }
+}
+
