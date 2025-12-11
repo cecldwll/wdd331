@@ -5,37 +5,158 @@ article#about > .container:nth-of-type(2) {
   background: none !important;
   padding-block: 1.5rem;
 
+  //   ul {
+  //     list-style: none !important;     /* remove default bullets */
+  //     padding: 0;
+  //     margin: 0 0 1rem 0;
+  //     gap: 0.35rem;
+  //     width: min(560px, 92%);
+  //     text-align: left;
+  //   }
+
+  //   ul li {
+  //     display: flex;
+  //     align-items: flex-start;
+  //     padding-left: 2rem;
+  //     position: relative;
+  //     margin-bottom: 0.35rem;
+  //   }
+
+  //   /* dash before each item */
+  //   ul li::before {
+  //     content: "-";
+  //     display: inline-block;
+  //     width: 1rem;
+  //     margin-right: 0.5rem;
+  //     color: var(--color-variant-1);
+  //     font-weight: 700;
+  //     line-height: 1;
+  //   }
+
+  //   /* ensure anchors inside list keep your theme link styles */
+  //   ul li a {
+  //     color: var(--color-variant-1);
+  //     text-decoration: underline;
+  //   }
+
   ul {
-    list-style: none !important;     /* remove default bullets */
-    padding: 0;
-    margin: 0 0 1rem 0;
-    gap: 0.35rem;
+    justify-self: center;
     width: min(560px, 92%);
-    text-align: left;                 
-  }
-
-  ul li {
     display: flex;
-    align-items: flex-start;
-    padding-left: 2rem;          
-    position: relative;
-    margin-bottom: 0.35rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    list-style: none;
+
+    li {
+      box-shadow: 0px 0px 5px var(--color-variant-2);
+      padding: 0.5rem 1rem;
+      position: relative;
+
+      &:hover {
+        text-shadow: 3px 3px 5px;
+      }
+    }
+
+    li:nth-child(odd) {
+      color: var(--color-variant-5);
+    }
+
+    li:nth-child(3n) {
+      color: var(--color-variant-1);
+
+      &:hover::after {
+        content: "——————";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        transform: rotate(0deg);
+
+        text-shadow: 100px 10px 1px;
+      }
+    }
+
+    li:nth-child(5n) {
+      color: var(--color-variant-3);
+      justify-self: start;
+
+      &:hover::after {
+        content: "——————";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+
+// --------------------------
+// Block Quote Glitch Stripe
+// --------------------------
+blockquote::after {
+  content: "";
+  position: absolute;
+  top: -100;
+  left: 0;
+  width: 500px;
+  height: 5px; /* Set the thickness of your border */
+  background-color: var(--color-variant-5); /* Set the color of your border */
+  clip-path: polygon(
+    15% 75%,
+    15% 15%,
+    15% 0%,
+    75% 0%,
+    75% 15%,
+    100% 15%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    15% 100%,
+    0 100%,
+    0% 75%
+  );
+
+  animation: glitchStripe 1000ms linear infinite;
+}
+
+// colors for glitch spot
+@keyframes glitchStripe {
+  0% {
+    transform: translate(0, 0);
+    background-color: var(--color-background);
+  }
+  10% {
+    background-color: var(--color-background);
+    opacity: 50%;
+  }
+  15% {
+    transform: translate(0, 0);
+    background-color: var(--color-variant-6);
+    opacity: 100%;
+  }
+  20% {
+    transform: translate(-0.05em, -0.025em);
+    background-color: var(--color-background);
+    opacity: 50%;
   }
 
-  /* dash before each item */
-  ul li::before {
-    content: "-";
-    display: inline-block;
-    width: 1rem;
-    margin-right: 0.5rem;
-    color: var(--color-variant-1);
-    font-weight: 700;
-    line-height: 1;
+  70% {
+    transform: translate(-0.05em, -0.025em);
+    background-color: var(--color-background);
+  }
+  85% {
+    background-color: var(--color-variant-6);
+  }
+  90% {
+    transform: translate(0, 0);
+    background-color: var(--color-background);
+    opacity: 50%;
   }
 
-  /* ensure anchors inside list keep your theme link styles */
-  ul li a {
-    color: var(--color-variant-1);
-    text-decoration: underline;
+  100% {
+    transform: translate(0, 0);
+    background-color: var(--color-background);
+    opacity: 50%;
   }
 }

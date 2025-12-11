@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=ubuntu&family=Krona+One&family=Monoton&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Krona+One&family=Rubik+Glitch&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Inconsolata:wght@200..900&family=Koulen&family=Krona+One&family=Rubik+Glitch&display=swap");
@@ -325,55 +326,6 @@ section a:hover {
   text-shadow: 0 0 6px #fd00fb;
 }
 
-blockquote::after {
-  content: "";
-  position: absolute;
-  top: -100;
-  left: 0;
-  width: 500px;
-  height: 5px; /* Set the thickness of your border */
-  background-color: var(--color-variant-5); /* Set the color of your border */
-  clip-path: polygon(15% 75%, 15% 15%, 15% 0%, 75% 0%, 75% 15%, 100% 15%, 100% 75%, 75% 75%, 75% 100%, 15% 100%, 0 100%, 0% 75%);
-  animation: glitchStripe 1000ms linear infinite;
-}
-
-@keyframes glitchStripe {
-  0% {
-    transform: translate(0, 0);
-    background-color: var(--color-variant-5);
-  }
-  10% {
-    background-color: var(--color-variant-5);
-    opacity: 50%;
-  }
-  15% {
-    transform: translate(0, 0);
-    background-color: var(--color-variant-1);
-    opacity: 100%;
-  }
-  20% {
-    transform: translate(-0.05em, -0.025em);
-    background-color: var(--color-variant-5);
-    opacity: 50%;
-  }
-  70% {
-    transform: translate(-0.05em, -0.025em);
-    background-color: var(--color-variant-5);
-  }
-  85% {
-    background-color: var(--color-variant-6);
-  }
-  90% {
-    transform: translate(0, 0);
-    background-color: var(--color-variant-5);
-    opacity: 50%;
-  }
-  100% {
-    transform: translate(0, 0);
-    background-color: var(--color-variant-5);
-    opacity: 50%;
-  }
-}
 body::before,
 body::after {
   content: "";
@@ -728,40 +680,97 @@ article#about > .container:nth-of-type(2) {
   padding-block: 1.5rem;
 }
 article#about > .container:nth-of-type(2) ul {
-  list-style: none !important; /* remove default bullets */
-  padding: 0;
-  margin: 0 0 1rem 0;
-  gap: 0.35rem;
+  justify-self: center;
   width: min(560px, 92%);
-  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  list-style: none;
 }
 article#about > .container:nth-of-type(2) ul li {
-  display: flex;
-  align-items: flex-start;
-  padding-left: 2rem;
+  box-shadow: 0px 0px 5px var(--color-variant-2);
+  padding: 0.5rem 1rem;
   position: relative;
-  margin-bottom: 0.35rem;
 }
-article#about > .container:nth-of-type(2) {
-  /* dash before each item */
+article#about > .container:nth-of-type(2) ul li:hover {
+  text-shadow: 3px 3px 5px;
 }
-article#about > .container:nth-of-type(2) ul li::before {
-  content: "-";
-  display: inline-block;
-  width: 1rem;
-  margin-right: 0.5rem;
+article#about > .container:nth-of-type(2) ul li:nth-child(odd) {
+  color: var(--color-variant-5);
+}
+article#about > .container:nth-of-type(2) ul li:nth-child(3n) {
   color: var(--color-variant-1);
-  font-weight: 700;
-  line-height: 1;
 }
-article#about > .container:nth-of-type(2) {
-  /* ensure anchors inside list keep your theme link styles */
+article#about > .container:nth-of-type(2) ul li:nth-child(3n):hover::after {
+  content: "——————";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  transform: rotate(0deg);
+  text-shadow: 100px 10px 1px;
 }
-article#about > .container:nth-of-type(2) ul li a {
-  color: var(--color-variant-1);
-  text-decoration: underline;
+article#about > .container:nth-of-type(2) ul li:nth-child(5n) {
+  color: var(--color-variant-3);
+  justify-self: start;
+}
+article#about > .container:nth-of-type(2) ul li:nth-child(5n):hover::after {
+  content: "——————";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  transform: rotate(0deg);
 }
 
+blockquote::after {
+  content: "";
+  position: absolute;
+  top: -100;
+  left: 0;
+  width: 500px;
+  height: 5px; /* Set the thickness of your border */
+  background-color: var(--color-variant-5); /* Set the color of your border */
+  clip-path: polygon(15% 75%, 15% 15%, 15% 0%, 75% 0%, 75% 15%, 100% 15%, 100% 75%, 75% 75%, 75% 100%, 15% 100%, 0 100%, 0% 75%);
+  animation: glitchStripe 1000ms linear infinite;
+}
+
+@keyframes glitchStripe {
+  0% {
+    transform: translate(0, 0);
+    background-color: var(--color-background);
+  }
+  10% {
+    background-color: var(--color-background);
+    opacity: 50%;
+  }
+  15% {
+    transform: translate(0, 0);
+    background-color: var(--color-variant-6);
+    opacity: 100%;
+  }
+  20% {
+    transform: translate(-0.05em, -0.025em);
+    background-color: var(--color-background);
+    opacity: 50%;
+  }
+  70% {
+    transform: translate(-0.05em, -0.025em);
+    background-color: var(--color-background);
+  }
+  85% {
+    background-color: var(--color-variant-6);
+  }
+  90% {
+    transform: translate(0, 0);
+    background-color: var(--color-background);
+    opacity: 50%;
+  }
+  100% {
+    transform: translate(0, 0);
+    background-color: var(--color-background);
+    opacity: 50%;
+  }
+}
 .guidelines {
   background: linear-gradient(120deg, #0301fc, #01ff00);
   padding: 2rem;
