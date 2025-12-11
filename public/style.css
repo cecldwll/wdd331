@@ -723,46 +723,43 @@ nav ul a::before {
   content: "/";
 }
 
-.about {
-  background: linear-gradient(120deg, #0301fc, #01ff00);
-  padding: 2rem;
-  border-radius: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+article#about > .container:nth-of-type(2) {
+  background: none !important;
+  padding-block: 1.5rem;
+}
+article#about > .container:nth-of-type(2) ul {
+  list-style: none !important; /* remove default bullets */
+  padding: 0;
+  margin: 0 0 1rem 0;
+  gap: 0.35rem;
+  width: min(560px, 92%);
+  text-align: left;
+}
+article#about > .container:nth-of-type(2) ul li {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 2rem;
   position: relative;
-  color: #fd00fb;
+  margin-bottom: 0.35rem;
 }
-.about h2 {
-  font-family: var(--header-font-family);
-  font-size: var(--font-size-h2);
-  color: var(--color-text);
-  margin-bottom: 0.5rem;
-  position: relative;
+article#about > .container:nth-of-type(2) {
+  /* dash before each item */
 }
-.about h2::before, .about h2::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
+article#about > .container:nth-of-type(2) ul li::before {
+  content: "-";
+  display: inline-block;
+  width: 1rem;
+  margin-right: 0.5rem;
+  color: var(--color-variant-1);
+  font-weight: 700;
+  line-height: 1;
 }
-.about h2::before {
-  left: -2px;
-  text-shadow: -2px 0 var(--color-variant-3);
-  animation: glitch-frag-1 1.4s infinite linear alternate-reverse;
+article#about > .container:nth-of-type(2) {
+  /* ensure anchors inside list keep your theme link styles */
 }
-.about h2::after {
-  left: 2px;
-  text-shadow: -2px 0 var(--color-variant-1);
-  animation: glitch-frag-2 1.7s infinite linear alternate-reverse;
-}
-.about p {
-  font-family: var(--body-font-family);
-  font-size: var(--font-size-text);
-  line-height: 1.6;
-  color: var(--color-text);
+article#about > .container:nth-of-type(2) ul li a {
+  color: var(--color-variant-1);
+  text-decoration: underline;
 }
 
 .guidelines {
