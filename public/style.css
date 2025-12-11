@@ -689,7 +689,7 @@ article#about > .container:nth-of-type(2) ul {
   list-style: none;
 }
 article#about > .container:nth-of-type(2) ul li {
-  box-shadow: 0px 0px 5px var(--color-variant-2);
+  box-shadow: 0px 0px 5px var(--color-variant-6);
   padding: 0.5rem 1rem;
   position: relative;
 }
@@ -697,7 +697,7 @@ article#about > .container:nth-of-type(2) ul li:hover {
   text-shadow: 3px 3px 5px;
 }
 article#about > .container:nth-of-type(2) ul li:nth-child(odd) {
-  color: var(--color-variant-5);
+  color: var(--color-variant-3);
 }
 article#about > .container:nth-of-type(2) ul li:nth-child(3n) {
   color: var(--color-variant-1);
