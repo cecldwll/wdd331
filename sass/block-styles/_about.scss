@@ -1,23 +1,41 @@
 @use "../utility-styles/mixins" as mixins;
 @use "../global-styles/theme" as theme;
 
-.about {
-  @include mixins.panel-base;
-  color: theme.color(variant-4);
+article#about > .container:nth-of-type(2) {
+  background: none !important;
+  padding-block: 1.5rem;
 
-  h2 {
-    font-family: var(--header-font-family);
-    font-size: var(--font-size-h2);
-    color: var(--color-text);
-    margin-bottom: 0.5rem;
-
-    @include mixins.glitch-text(var(--color-variant-3), var(--color-variant-1));
+  ul {
+    list-style: none !important;     /* remove default bullets */
+    padding: 0;
+    margin: 0 0 1rem 0;
+    gap: 0.35rem;
+    width: min(560px, 92%);
+    text-align: left;                 
   }
 
-  p {
-    font-family: var(--body-font-family);
-    font-size: var(--font-size-text);
-    line-height: 1.6;
-    color: var(--color-text);
+  ul li {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 2rem;          
+    position: relative;
+    margin-bottom: 0.35rem;
+  }
+
+  /* dash before each item */
+  ul li::before {
+    content: "-";
+    display: inline-block;
+    width: 1rem;
+    margin-right: 0.5rem;
+    color: var(--color-variant-1);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* ensure anchors inside list keep your theme link styles */
+  ul li a {
+    color: var(--color-variant-1);
+    text-decoration: underline;
   }
 }
