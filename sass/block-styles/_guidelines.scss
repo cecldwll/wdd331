@@ -2,11 +2,14 @@
 @use "../global-styles/theme" as theme;
 
 .guidelines {
-  @include mixins.panel-base;
+  @include mixins.panel-base; 
 
   h2 {
     color: var(--color-text);
-    @include mixins.glitch-text(var(--color-variant-4), var(--color-variant-3));
+    @include mixins.glitch-text( 
+      var(--color-variant-4),
+      var(--color-variant-3) 
+    );
   }
 
   ol,
