@@ -138,7 +138,6 @@ a:hover {
 }
 
 blockquote {
-  border: 2px solid var(--color-variant-6);
   padding: 1rem 2rem;
 }
 blockquote p {
@@ -681,7 +680,7 @@ article#about > .container:nth-of-type(2) {
 }
 article#about > .container:nth-of-type(2) ul {
   justify-self: center;
-  width: min(560px, 92%);
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -692,12 +691,13 @@ article#about > .container:nth-of-type(2) ul li {
   box-shadow: 0px 0px 5px var(--color-variant-2);
   padding: 0.5rem 1rem;
   position: relative;
+  color: var(--color-variant-2);
 }
 article#about > .container:nth-of-type(2) ul li:hover {
   text-shadow: 3px 3px 5px;
 }
 article#about > .container:nth-of-type(2) ul li:nth-child(odd) {
-  color: var(--color-variant-5);
+  color: var(--color-variant-4);
 }
 article#about > .container:nth-of-type(2) ul li:nth-child(3n) {
   color: var(--color-variant-1);
@@ -722,8 +722,13 @@ article#about > .container:nth-of-type(2) ul li:nth-child(5n):hover::after {
   transform: rotate(0deg);
 }
 
+blockquote {
+  border: 2px solid var(--color-variant-3);
+  box-shadow: 0px 0px 8px var(--color-variant-2);
+}
 blockquote::after {
   content: "";
+  z-index: -1;
   position: absolute;
   top: -100;
   left: 0;
@@ -731,7 +736,7 @@ blockquote::after {
   height: 5px; /* Set the thickness of your border */
   background-color: var(--color-variant-5); /* Set the color of your border */
   clip-path: polygon(15% 75%, 15% 15%, 15% 0%, 75% 0%, 75% 15%, 100% 15%, 100% 75%, 75% 75%, 75% 100%, 15% 100%, 0 100%, 0% 75%);
-  animation: glitchStripe 1000ms linear infinite;
+  animation: glitchStripe 2000ms linear infinite;
 }
 
 @keyframes glitchStripe {
@@ -741,34 +746,32 @@ blockquote::after {
   }
   10% {
     background-color: var(--color-background);
-    opacity: 50%;
   }
-  15% {
+  13% {
     transform: translate(0, 0);
     background-color: var(--color-variant-6);
-    opacity: 100%;
   }
-  20% {
-    transform: translate(-0.05em, -0.025em);
-    background-color: var(--color-background);
-    opacity: 50%;
-  }
-  70% {
+  16% {
     transform: translate(-0.05em, -0.025em);
     background-color: var(--color-background);
   }
-  85% {
+  30% {
+    transform: translate(-0.05em, -0.025em);
+    background-color: var(--color-background);
+  }
+  35% {
     background-color: var(--color-variant-6);
   }
   90% {
+    background-color: var(--color-variant-6);
+  }
+  95% {
     transform: translate(0, 0);
     background-color: var(--color-background);
-    opacity: 50%;
   }
   100% {
     transform: translate(0, 0);
     background-color: var(--color-background);
-    opacity: 50%;
   }
 }
 .guidelines {
@@ -812,23 +815,16 @@ blockquote::after {
   line-height: 1.5;
 }
 
-.contribute {
-  background: linear-gradient(120deg, #0301fc, #01ff00);
-  padding: 2rem;
-  border-radius: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-  position: relative;
+#contribute {
   border-color: rgba(255, 255, 255, 0.25);
 }
-.contribute h2 {
+#contribute h2 {
   font-family: var(--header-font-family);
   font-size: var(--font-size-h2);
   color: var(--color-text);
   position: relative;
 }
-.contribute h2::before, .contribute h2::after {
+#contribute h2::before, #contribute h2::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
@@ -836,17 +832,60 @@ blockquote::after {
   width: 100%;
   overflow: hidden;
 }
-.contribute h2::before {
+#contribute h2::before {
   left: -2px;
   text-shadow: -2px 0 var(--color-variant-1);
   animation: glitch-frag-1 1.4s infinite linear alternate-reverse;
 }
-.contribute h2::after {
+#contribute h2::after {
   left: 2px;
   text-shadow: -2px 0 var(--color-variant-4);
   animation: glitch-frag-2 1.7s infinite linear alternate-reverse;
 }
+#contribute section:first-of-type {
+  position: relative;
+}
+#contribute section:first-of-type::after {
+  content: "";
+  position: absolute;
+  top: 150px;
+  left: 80%;
+  width: 100px; /* Set the thickness of your border */
+  height: 200px; /* Set the thickness of your border */
+  background-color: var(--color-background); /* Set the color of your border */
+  border-radius: 0;
+  animation: glitchBlock 2000ms linear infinite;
+}
 
+@keyframes glitchBlock {
+  0% {
+    opacity: 100%;
+  }
+  10% {
+    opacity: 100%;
+  }
+  13% {
+    opacity: 0%;
+  }
+  16% {
+    opacity: 100%;
+  }
+  30% {
+    opacity: 100%;
+  }
+  35% {
+    opacity: 0%;
+  }
+  90% {
+    opacity: 0%;
+  }
+  95% {
+    opacity: 1000%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
 .files {
   background: linear-gradient(120deg, #0301fc, #01ff00);
   padding: 2rem;

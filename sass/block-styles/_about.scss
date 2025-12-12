@@ -41,7 +41,7 @@ article#about > .container:nth-of-type(2) {
 
   ul {
     justify-self: center;
-    width: min(560px, 92%);
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -52,6 +52,7 @@ article#about > .container:nth-of-type(2) {
       box-shadow: 0px 0px 5px var(--color-variant-2);
       padding: 0.5rem 1rem;
       position: relative;
+      color: var(--color-variant-2);
 
       &:hover {
         text-shadow: 3px 3px 5px;
@@ -59,7 +60,7 @@ article#about > .container:nth-of-type(2) {
     }
 
     li:nth-child(odd) {
-      color: var(--color-variant-5);
+      color: var(--color-variant-4);
     }
 
     li:nth-child(3n) {
@@ -94,30 +95,35 @@ article#about > .container:nth-of-type(2) {
 // --------------------------
 // Block Quote Glitch Stripe
 // --------------------------
-blockquote::after {
-  content: "";
-  position: absolute;
-  top: -100;
-  left: 0;
-  width: 500px;
-  height: 5px; /* Set the thickness of your border */
-  background-color: var(--color-variant-5); /* Set the color of your border */
-  clip-path: polygon(
-    15% 75%,
-    15% 15%,
-    15% 0%,
-    75% 0%,
-    75% 15%,
-    100% 15%,
-    100% 75%,
-    75% 75%,
-    75% 100%,
-    15% 100%,
-    0 100%,
-    0% 75%
-  );
+blockquote {
+  border: 2px solid var(--color-variant-3);
+  box-shadow: 0px 0px 8px var(--color-variant-2);
+  &::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: -100;
+    left: 0;
+    width: 500px;
+    height: 5px; /* Set the thickness of your border */
+    background-color: var(--color-variant-5); /* Set the color of your border */
+    clip-path: polygon(
+      15% 75%,
+      15% 15%,
+      15% 0%,
+      75% 0%,
+      75% 15%,
+      100% 15%,
+      100% 75%,
+      75% 75%,
+      75% 100%,
+      15% 100%,
+      0 100%,
+      0% 75%
+    );
 
-  animation: glitchStripe 1000ms linear infinite;
+    animation: glitchStripe 2000ms linear infinite;
+  }
 }
 
 // colors for glitch spot
@@ -128,35 +134,33 @@ blockquote::after {
   }
   10% {
     background-color: var(--color-background);
-    opacity: 50%;
   }
-  15% {
+  13% {
     transform: translate(0, 0);
     background-color: var(--color-variant-6);
-    opacity: 100%;
   }
-  20% {
+  16% {
     transform: translate(-0.05em, -0.025em);
     background-color: var(--color-background);
-    opacity: 50%;
   }
 
-  70% {
+  30% {
     transform: translate(-0.05em, -0.025em);
     background-color: var(--color-background);
   }
-  85% {
+  35% {
     background-color: var(--color-variant-6);
   }
   90% {
+    background-color: var(--color-variant-6);
+  }
+  95% {
     transform: translate(0, 0);
     background-color: var(--color-background);
-    opacity: 50%;
   }
 
   100% {
     transform: translate(0, 0);
     background-color: var(--color-background);
-    opacity: 50%;
   }
 }

@@ -1,8 +1,7 @@
 @use "../utility-styles/mixins" as mixins;
 @use "../global-styles/theme" as theme;
 
-.contribute {
-  @include mixins.panel-base;
+#contribute {
   border-color: rgba(255, 255, 255, 0.25);
 
   h2 {
@@ -11,5 +10,57 @@
     color: var(--color-text);
 
     @include mixins.glitch-text(var(--color-variant-1), var(--color-variant-4));
+  }
+
+  section:first-of-type {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 150px;
+      left: 80%;
+      width: 100px; /* Set the thickness of your border */
+      height: 200px; /* Set the thickness of your border */
+      background-color: var(
+        --color-background
+      ); /* Set the color of your border */
+      border-radius: 0;
+
+      animation: glitchBlock 2000ms linear infinite;
+    }
+  }
+}
+
+// colors for glitch spot
+@keyframes glitchBlock {
+  0% {
+    opacity: 100%;
+  }
+  10% {
+    opacity: 100%;
+  }
+  13% {
+    opacity: 0%;
+  }
+  16% {
+    opacity: 100%;
+  }
+
+  30% {
+    opacity: 100%;
+  }
+  35% {
+    opacity: 0%;
+  }
+  90% {
+    opacity: 0%;
+  }
+  95% {
+    opacity: 1000%;
+  }
+
+  100% {
+    opacity: 100%;
   }
 }
